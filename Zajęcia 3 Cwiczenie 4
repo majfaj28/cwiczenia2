@@ -1,0 +1,19 @@
+using System;
+
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+      Console.WriteLine("Podaj wybraną liczbe n by obliczyć silnie");
+      int n = int.Parse(Console.ReadLine());
+      int silnia =1;
+     
+      
+       for (int i = 1; i <= n; i++)
+       {
+           silnia *= i;
+           Console.WriteLine($" Silnia wynosi !{n} = { i * n }");
+       }
+       
+    }
+}
