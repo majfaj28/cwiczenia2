@@ -1,0 +1,18 @@
+using System;
+
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+      Console.WriteLine("Podaj liczbe");
+      int n = int.Parse(Console.ReadLine());
+      int odwrocona = 0;
+      while (n > 0)
+      {
+          int cyfra = n% 10;
+          odwrocona = odwrocona * 10 + cyfra;
+         n /=10
+      }
+       Console.WriteLine("Odwrocona liczba :" + odwrocona);
+    }
+}
