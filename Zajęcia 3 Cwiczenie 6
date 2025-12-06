@@ -1,0 +1,17 @@
+using System;
+
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+      Console.WriteLine("Podaj wymiary prostokata");
+      Console.WriteLine("Podaj szerokosc");
+      int szerokosc = int.Parse(Console.ReadLine());
+    Console.WriteLine("Podaj wysokosc");
+    int wysokosc = int.Parse(Console.ReadLine());
+    for (int i=1; i<= wysokosc; i++)
+    {
+        Console.WriteLine(new string('*', szerokosc));
+    }
+    }
+}
