@@ -1,0 +1,13 @@
+using System;
+using System.Collections.Generic;
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        List<int> listaLiczb = new List<int> {2,4,6,7,9};
+        foreach (var liczba in listaLiczb)
+        {
+            Console.WriteLine(liczba);
+        }
+    }
+}
