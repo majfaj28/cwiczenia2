@@ -1,0 +1,14 @@
+using System;
+using System.Collections.Generic;
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        List<int> cyfry = new List<int> {3,24,5,20,15,17,6,28};
+        cyfry.Sort();
+        foreach (int n in cyfry)
+        {
+            Console.WriteLine(n);
+        }
+    }
+}
