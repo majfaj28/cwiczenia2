@@ -1,0 +1,20 @@
+using System;
+using System.Collections.Generic;
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        List <int> lista= new List<int> {3,27,5,19,0};
+        Console.WriteLine("Podaj wybrana cyfre");
+        int liczba = int.Parse(Console.ReadLine());
+        int licznik = 0;
+        foreach (int element in lista)
+        {
+            if(element>liczba)
+            {
+                licznik++;
+            }
+        }
+        Console.WriteLine("Liczba elementow wiekszych:" + licznik);
+    }
+}
