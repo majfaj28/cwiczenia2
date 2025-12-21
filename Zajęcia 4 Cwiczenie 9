@@ -1,0 +1,21 @@
+using System;
+using System.Collections.Generic;
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        List<int> liczba = new List<int> {3,24,5,20,15,17,6,28};
+        Console.WriteLine("Podaj wybrana przez siebie liczbe");
+        int n = int.Parse(Console.ReadLine());
+        int ile=0;
+        foreach( int x in liczba)
+        {
+            if (x == n)
+            {
+                ile++;
+            }
+        }
+        Console.WriteLine("Liczba wystepuje "+ ile + "razy");
+      
+    }
+}
