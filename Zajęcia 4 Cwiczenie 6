@@ -1,0 +1,15 @@
+using System;
+using System.Collections.Generic;
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        List <int> lista= new List<int> {-3,27,-5,19,0,7,54,-20};
+        
+        lista.RemoveAll(n => n<0);
+        foreach(int element in lista)
+        {
+            Console.WriteLine(element);
+        }
+    }
+}
