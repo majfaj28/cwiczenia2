@@ -1,0 +1,17 @@
+using System;
+using System.Collections.Generic;
+public class HelloWorld
+{
+    static int Zmiana (int a)
+    {
+        return a * 9/5 + 32;
+    }
+    
+    public static void Main(string[] args)
+    {
+      Console.WriteLine("Hej! Zamiana Celsjuszy na Fahrenheity. Podaj wartosc do przeliczenia");
+      int liczba = int.Parse(Console.ReadLine());
+      int wynik = Zmiana(liczba);
+      Console.WriteLine(wynik);
+    }
+}
