@@ -1,0 +1,18 @@
+using System;
+using System.Collections.Generic;
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        List <int> listaLiczb= new List<int> {3,27,5,19,0};
+        int min=listaLiczb[0];
+        int max=listaLiczb[0];
+        foreach (int element in listaLiczb)
+        {
+            if (element < min) min = element;
+            if (element > max) max = element;
+        }
+        Console.WriteLine("Najmniejsza:" + min);
+        Console.WriteLine("najwieksza:" + max);
+    }
+}
