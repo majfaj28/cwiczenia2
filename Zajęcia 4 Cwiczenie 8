@@ -1,0 +1,20 @@
+using System;
+using System.Collections.Generic;
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        List<int> liczba = new List<int> {3,24,5,20,15,17,6,28};
+        Console.WriteLine("Podaj wybrana przez siebie liczbe");
+        int n = int.Parse(Console.ReadLine());
+        int indeks = liczba.IndexOf(n);
+        if (indeks !=-1)
+        {
+            Console.WriteLine("Cyfra znajduje sie w systemie na miejscu:" + indeks);
+        }
+        else
+        {
+            Console.WriteLine("Cyfra nie znajduje sie w systemie");
+        }
+    }
+}
