@@ -1,0 +1,21 @@
+using System;
+
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        Console.WriteLine ("Podaj pierwsza liczbe");
+        int a = int.Parse(Console.ReadLine());
+        Console.WriteLine("Podaj druga liczbe");
+        int b = int.Parse(Console.ReadLine());
+        
+        bool wynik = CzyPodzielna(a,b);
+        Console.WriteLine(wynik);
+    }
+    static bool CzyPodzielna(int a, int b)
+    {
+        if (b == 0)
+        return false;
+        return a % b == 0;
+    }
+}
