@@ -1,0 +1,12 @@
+
+using System;
+
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        (string imie, string nazwisko, string telefon) 
+        osoba = ("Jan", "Kowalski", "123-456-789");
+        Console.WriteLine ($"imie i nazwisko: {osoba.imie},{osoba.nazwisko}, Telefon: {osoba.telefon}");
+    }
+}
