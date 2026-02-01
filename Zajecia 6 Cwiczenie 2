@@ -1,0 +1,23 @@
+
+using System;
+using System.Collections.Generic;
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        var produkty = new List<(string Nazwa, double Cena, int Ilosc)>
+        {
+            ("Chleb", 4.20, 15),
+            ("Masło", 8.99, 50),
+            ("Mleko", 2.45, 21),
+            ("Jogurt naturalny", 1.98, 36),
+            ("Jajka 10szt", 11.49, 8)
+        };
+        double wartoscMagazynu = 0;
+        foreach (var p in produkty)
+        {
+            wartoscMagazynu += p.Cena * p.Ilosc;
+        }
+        Console.WriteLine ($"Całkowita wartosc magazynu: {wartoscMagazynu} zl");
+    }
+}
