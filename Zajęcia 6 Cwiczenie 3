@@ -1,0 +1,29 @@
+
+using System;
+using System.Collections.Generic;
+public class HelloWorld
+{
+    public static void Main()
+    {
+        var schedule = new List<(string subject, string day, string time)>
+        {
+            ("Historia", "Wtorek", "10:00"),
+            ("Informatyka", "Sroda", "12:00"),
+            ("Matematyka", "Poniedzialek", "8:00"),
+            ("Fizyka", "Czwartek", "14:00"),
+            ("Angielski", "Piatek", "9:00")
+        };
+        ShowClassesForDay(schedule, "Wtorek");
+    }
+    static void ShowClassesForDay( List<(string subject,string day, string time)> schedule, string day)
+        {
+            Console.WriteLine($"Zajecia w {day}:");
+            foreach (var item in schedule)
+            {
+                if(item.day==day)
+                {
+                    Console.WriteLine($"{item.time} - {item.subject}");
+                }
+            }
+        }
+    }
