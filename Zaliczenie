@@ -1,0 +1,135 @@
+using System;
+using System.Collections.Generic;
+
+class Wydatek
+{
+    public string Nazwa { get; set; }
+    public double Kwota { get; set; }
+
+    public Wydatek(string nazwa, double kwota)
+    {
+        Nazwa = nazwa;
+        Kwota = kwota;
+    }
+}
+
+class Program
+{
+    static List<Wydatek> wydatki = new List<Wydatek>();
+
+    static void Main()
+    {
+        bool programDziala = true;
+
+        while (programDziala)
+        {
+            PokazMenu();
+            string wybor = Console.ReadLine();
+
+            switch (wybor)
+            {
+                case "1":
+                    DodajWydatek();
+                    break;
+
+                case "2":
+                    PokazWydatki();
+                    break;
+
+                case "3":
+                    PokazSume();
+                    break;
+
+                case "4":
+                    NajwiekszyWydatek();
+                    break;
+
+                case "5":
+                    programDziala = false;
+                    Console.WriteLine("Koniec programu.");
+                    break;
+
+                default:
+                    Console.WriteLine("Niepoprawna opcja.");
+                    break;
+            }
+        }
+    }
+
+    static void PokazMenu()
+    {
+        Console.WriteLine("\nKALKULATOR WYDATKOW");
+        Console.WriteLine("1. Dodaj wydatek");
+        Console.WriteLine("2. Wyswietl liste wydatkow");
+        Console.WriteLine("3. Oblicz laczna kwote");
+        Console.WriteLine("4. Znajdz najwiekszy wydatek");
+        Console.WriteLine("5. Wyjdz");
+        Console.Write("Wybierz opcje: ");
+    }
+
+    static void DodajWydatek()
+    {
+        Console.Write("Podaj nazwe wydatku: ");
+        string nazwa = Console.ReadLine();
+
+        double kwota;
+        Console.Write("Podaj kwote: ");
+
+        while (!double.TryParse(Console.ReadLine(), out kwota) || kwota < 0)
+        {
+            Console.Write("Bledna kwota. Sprobuj ponownie: ");
+        }
+
+        wydatki.Add(new Wydatek(nazwa, kwota));
+        Console.WriteLine("Wydatek dodany.");
+    }
+
+    static void PokazWydatki()
+    {
+        if (wydatki.Count == 0)
+        {
+            Console.WriteLine("Brak zapisanych wydatkow.");
+            return;
+        }
+
+        Console.WriteLine("\nLista wydatkow:");
+
+        int i = 1;
+        foreach (var w in wydatki)
+        {
+            Console.WriteLine($"{i}. {w.Nazwa} - {w.Kwota}");
+            i++;
+        }
+    }
+
+    static void PokazSume()
+    {
+        double suma = 0;
+
+        foreach (var w in wydatki)
+        {
+            suma += w.Kwota;
+        }
+
+        Console.WriteLine($"Laczna kwota wydatkow: {suma}");
+    }
+
+    static void NajwiekszyWydatek()
+    {
+        if (wydatki.Count == 0)
+        {
+            Console.WriteLine("Brak wydatkow.");
+            return;
+        }
+
+        Wydatek max = wydatki[0];
+
+        foreach (var w in wydatki)
+        {
+            if (w.Kwota > max.Kwota)
+                max = w;
+        }
+
+        Console.WriteLine($"Najwiekszy wydatek: {max.Nazwa} - {max.Kwota}");
+    }
+}
