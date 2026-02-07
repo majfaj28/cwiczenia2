@@ -1,0 +1,135 @@
+using System;
+using System.Collections.Generic;//Do tworzenia list itp.
+
+class Wydatek //reprezentuje pojedynczy wydatewk
+{
+    public string Nazwa { get; set; }//get- odczytanie wartosci set-ustawic wartość 
+    public double Kwota { get; set; }
+
+    public Wydatek(string nazwa, double kwota)//metoda wywolania nowego obiektu(przypisanie wartosci poczatkowych do wlasnosci nazwa i kwota )
+    {
+        Nazwa = nazwa;
+        Kwota = kwota;
+    }
+}
+
+class Program// zastepuje uzycie list
+{
+    static List<Wydatek> wydatki = new List<Wydatek>();//lista tworzenia wydatków
+
+    static void Main()//punkt startowy
+    {
+        bool programDziala = true;
+
+        while (programDziala)
+        {
+            PokazMenu();
+            string wybor = Console.ReadLine();
+
+            switch (wybor)
+            {
+                case "1"://zamiast funkcji if
+                    DodajWydatek();
+                    break;
+
+                case "2":
+                    PokazWydatki();
+                    break;
+
+                case "3":
+                    PokazSume();
+                    break;
+
+                case "4":
+                    NajwiekszyWydatek();
+                    break;
+
+                case "5":
+                    programDziala = false;
+                    Console.WriteLine("Koniec programu.");
+                    break;
+
+                default:
+                    Console.WriteLine("Niepoprawna opcja.");
+                    break;
+            }
+        }
+    }
+
+    static void PokazMenu() //odpowiada za menu
+    {
+        Console.WriteLine("\nKALKULATOR WYDATKOW");
+        Console.WriteLine("1. Dodaj wydatek");
+        Console.WriteLine("2. Wyswietl liste wydatkow");
+        Console.WriteLine("3. Oblicz laczna kwote");
+        Console.WriteLine("4. Znajdz najwiekszy wydatek");
+        Console.WriteLine("5. Wyjdz");
+        Console.Write("Wybierz opcje: ");
+    }
+
+    static void DodajWydatek()//odpowiada za dodawanie wydatków i kwot
+    {
+        Console.Write("Podaj nazwe wydatku: ");
+        string nazwa = Console.ReadLine();
+
+        double kwota;
+        Console.Write("Podaj kwote: ");
+
+        while (!double.TryParse(Console.ReadLine(), out kwota) || kwota < 0)
+        {
+            Console.Write("Bledna kwota. Sprobuj ponownie: ");
+        }
+
+        wydatki.Add(new Wydatek(nazwa, kwota));/
+        Console.WriteLine("Wydatek dodany.");
+    }
+
+    static void PokazWydatki()//wyswietlanie listy dodanych wydatków
+    {
+        if (wydatki.Count == 0)
+        {
+            Console.WriteLine("Brak zapisanych wydatkow.");
+            return;
+        }
+
+        Console.WriteLine("\nLista wydatkow:");
+
+        int i = 1;
+        foreach (var w in wydatki)
+        {
+            Console.WriteLine($"{i}. {w.Nazwa} - {w.Kwota}");
+            i++;
+        }
+    }
+
+    static void PokazSume()
+    {
+        double suma = 0;
+
+        foreach (var w in wydatki)
+        {
+            suma += w.Kwota;
+        }
+
+        Console.WriteLine($"Laczna kwota wydatkow: {suma}");
+    }
+
+    static void NajwiekszyWydatek()//pokazuje najwiekszy wydatek
+    {
+        if (wydatki.Count == 0)
+        {
+            Console.WriteLine("Brak wydatkow.");
+            return;
+        }
+
+        Wydatek max = wydatki[0];
+
+        foreach (var w in wydatki)
+        {
+            if (w.Kwota > max.Kwota)
+                max = w;
+        }
+
+        Console.WriteLine($"Najwiekszy wydatek: {max.Nazwa} - {max.Kwota}");
+    }
+}
