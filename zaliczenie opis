@@ -80,7 +80,7 @@ class Program// zastepuje uzycie list
             Console.Write("Bledna kwota. Sprobuj ponownie: ");
         }
 
-        wydatki.Add(new Wydatek(nazwa, kwota));/
+        wydatki.Add(new Wydatek(nazwa, kwota));
         Console.WriteLine("Wydatek dodany.");
     }
 
